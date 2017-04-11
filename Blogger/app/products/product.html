@@ -1,0 +1,32 @@
+<div class="form-horizontal">
+    <fieldset>
+        <legend>Search</legend>
+       
+        <div class="form-group" >
+            <label class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-3">
+                <input type="text" class="form-control"  placeholder="Search" 
+                ng-model="searchProduct"
+                 >
+                
+
+            </div>
+            <div class="col-lg-3">
+                <button class="btn btn-warning" ng-click="search()">Search</button>
+                </div>
+        </div>
+    </fieldset>
+</div>
+ <div class="row">
+        <div class="col-xs-6" ng-repeat="item in products track by $index">
+            <div class="thumbnail">
+                <img src="{{item.thumbnailImage}}" alt="Sample Image">
+                <div class="caption">
+                    <h3 ng-bind="item.name |limitTo:50"></h3>
+                    <p ng-bind="item.shortDescription|limitTo:100" ></p>
+                        <button ng-click="addProductToCart(item)" class="btn btn-primary">Add To Cart</button>
+                        <button class="btn btn-warning">Remove From Cart</button>
+                </div>
+            </div>
+        </div>
+</div>

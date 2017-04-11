@@ -1,0 +1,91 @@
+<form  name="register" class="form-horizontal" ng-controller="registerCtrl as rc" 
+nb-enter="register()">
+    <fieldset>
+        <legend>Register</legend>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="Email" 
+                ng-model="rc.userDetails.email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">First Name</label>
+            <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="First Name"
+                 ng-model="rc.userDetails.firstName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label">Last Name</label>
+            <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="Last Name"
+                 ng-model="rc.userDetails.lastName">
+            </div>
+        </div>
+                <div class="form-group">
+            <label class="col-lg-2 control-label"> UserName</label>
+            <div class="col-lg-6">
+                <input type="text" 
+                class="form-control" 
+                placeholder="UserName" ng-model="rc.userDetails.userName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label"> Password</label>
+            <div class="col-lg-6">
+                <input type="password" class="form-control" 
+                placeholder="Password"
+                name="password"
+                 ng-model="rc.userDetails.password" nbpassword>
+                 <p ng-show="register.password.$error.nbpassword">Password must be alphanumeric</p>
+            </div>
+        </div>
+            <div class="form-group">
+            <label class="col-lg-2 control-label"> DOB</label>
+            <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="DOB"
+                 ng-model="rc.userDetails.DoB" nb-date-picker>
+            </div>
+        </div>
+
+            <div class="form-group">
+            <label class="col-lg-2 control-label">DateOfWedding</label>
+            <div class="col-lg-6">
+                <input type="text" class="form-control" placeholder="DateOfWedding"
+                 ng-model="rc.userDetails.DateOfWedding" nb-custom-date >
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="select" class="col-lg-2 control-label">Country</label>
+            <div class="col-lg-6">
+                <select class="form-control" 
+                ng-model="rc.selectedCountry" 
+                ng-options="country.name for 
+                                      country in rc.countries">
+                </select>{{rc.selectedCountry}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-2 control-label"> Gender</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" value="M" name="gender"
+                     ng-model="rc.userDetails.gender">Male
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" value="F" name="gender" ng-model="rc.userDetails.gender">Female
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-2 control-label"> </label>
+            <div class="col-lg-6 col-lg-offset-4">
+                <button class="btn btn-primary" ng-click="register()">Register</button>
+            </div>
+        </div>
+    </fieldset>
+</form>

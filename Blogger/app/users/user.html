@@ -1,0 +1,27 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th><input type="text" ng-model="countryCode" placeholder="Country">
+                <th><button ng-click="showMore()" class="btn btn-warning">Show More</button>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in users|limitTo:userCount">
+            <td>{{$index+1}}</td>
+            <td>{{user.name|Initcap}}</td>
+            <td>{{user.company|lowercase}}</td>
+            <td>{{user.email|Initcap}}</td>
+            <td>{{user.phoneNumber|PhoneFormatter:countryCode}}</td>
+            <td><button ng-click="editUser(user)" class="btn btn-warning">Edit</button>
+        </tr>
+    </tbody>
+</table>
+<div nb-details
+ details="userEdit" 
+save-details="save()" 
+heading="{{title}}">
+</div>
